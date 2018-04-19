@@ -1,0 +1,22 @@
+[
+  {
+    "type": "container",
+    "title": "Traefik",
+    "description": "Træfik (pronounced like traffic) is a modern HTTP reverse proxy/load balancer",
+    "categories": ["network"],
+    "note": "Træfik",
+    "platform": "linux",
+    "logo": "https://d33wubrfki0l68.cloudfront.net/e29410f43273a18d40e1bd6e41641f5afdfc8057/eb7ca/traefik.logo.png",
+    "image": "traefik:latest",
+    "command": "--api --docker",
+    "ports": [
+      "8080/tcp",
+      "80/tcp",
+      "443/tcp"
+    ],
+   "labels": [
+    { "name": "traefik.frontend.rule", "value": "acme.lan" },
+    ],
+    "volumes": ["/etc/traefik/traefik.toml"]
+  }
+]
