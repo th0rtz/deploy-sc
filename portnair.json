@@ -15,7 +15,7 @@
       "443/tcp"
     ],
    "labels": [
-    { "name": "traefik.frontend.rule", "value": "acme.lan" },
+    { "name": "traefik.frontend.rule", "value": "acme.lan" }
     ],
     "volumes": ["/etc/traefik/traefik.toml"]
   }
