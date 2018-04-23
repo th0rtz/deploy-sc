@@ -817,7 +817,7 @@
        "443/tcp"
      ],
     "labels": [
-     { "name": "haarlifrontend.rule", "value": "th0rtz.fr" }
+     { "name": "shaarli.frontend.rule", "value": "th0rtz.fr" }
      ]
    }
 
