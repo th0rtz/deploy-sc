@@ -802,5 +802,23 @@
     { "name": "traefik.frontend.rule", "value": "acme.lan" }
     ],
     "volumes": ["/etc/traefik/traefik.toml"]
-  }
+  },
+  {
+     "type": "container",
+     "title": "SHaarli",
+     "description": "shaarli",
+     "categories": ["network"],
+     "note": "Shaarli",
+     "platform": "linux",
+     "logo": "https://raw.githubusercontent.com/shaarli/Shaarli/master/doc/md/images/doc-logo.png",
+     "image": "shaarli/shaarli:latest",
+     "ports": [
+       "80/tcp",
+       "443/tcp"
+     ],
+    "labels": [
+     { "name": "haarlifrontend.rule", "value": "th0rtz.fr" }
+     ]
+   }
+
 ]
