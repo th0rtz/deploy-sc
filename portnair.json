@@ -817,9 +817,9 @@
        "443/tcp"
      ],
     "labels": [
-     { "name": "shaarli.frontend.rule", "value": "acme.lan" },
+     { "name": "traefik.docker.network", "value": "traefik_default" },
      { "name": "traefik.backend", "value": "shaarli" },
-     { "name": "traefik.backend.loadbalancer.swarm", "value": "true"}
+     { "name": "traefik.frontend.rule", "value": "Host:shaarli.acme.lan"}
      ]
    }
 
