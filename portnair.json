@@ -56,15 +56,16 @@
      { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
      ]
     "env": [
-     { "name": "SOGEBOT_PORT", "value": "20000" },
-     { "name": "SOGEBOT_WEB_USERNAME", "value": "WEBuiUSER" },
-     { "name": "SOGEBOT_WEB_PASSWORD", "value": "MYsuperPWD" },
-     { "name": "SOGEBOT_BOT_NAME", "value": "MYbotUSERNAME" },
-     { "name": "SOGEBOT_BOT_OAUTH", "value": "1234567890AZERTYUIOP" },
-     { "name": "SOGEBOT_BOT_BROADCASTER_USERNAME", "value": "MYtwitchUSERNAME" },
-     { "name": "SOGEBOT_BOT_BROADCASTER_OAUTH", "value": "1234567890AZERTYUIOP" },
-     { "name": "SOGEBOT_BOT_CLIENTID", "value": "AZERTYUIOP1234567890" },
-     { "name": "SOGEBOT_DOMAIN", "value": "sogebot.acme.lan" }
+     { "SOGEBOT_PORT": "20000",
+     "SOGEBOT_WEB_USERNAME": "WEBuiUSER",
+     "SOGEBOT_WEB_PASSWORD": "MYsuperPWD",
+     "SOGEBOT_BOT_NAME": "MYbotUSERNAME",
+     "SOGEBOT_BOT_OAUTH": "1234567890AZERTYUIOP",
+     "SOGEBOT_BOT_BROADCASTER_USERNAME": "MYtwitchUSERNAME",
+     "SOGEBOT_BOT_BROADCASTER_OAUTH": "1234567890AZERTYUIOP",
+     "SOGEBOT_BOT_CLIENTID": "AZERTYUIOP1234567890",
+     "SOGEBOT_DOMAIN": "sogebot.acme.lan"
+     }
      ]
    },
   {
