@@ -97,6 +97,64 @@
      ]
    },
   {
+     "type": "container",
+     "title": "DEV-SogeBot",
+     "description": "Sogebot",
+     "categories": ["stream"],
+     "note": "SogeBot",
+     "platform": "linux",
+     "logo": "https://cdn-images-1.medium.com/max/327/1*paQ7E6f2VyTKXHpR-aViFg.png",
+     "image": "thortz/docker-sogebot:dev",
+     "ports": [
+       "20000/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "sogebot" },
+     { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
+     ],
+    "env": [
+        {
+        "name":"SOGEBOT_PORT",
+        "label": "Web UI port"
+        },
+        {
+        "name":"SOGEBOT_WEB_USERNAME",
+        "label": "Web UI Username"
+        },
+        {
+        "name":"SOGEBOT_WEB_PASSWORD",
+        "label": "Web IU Password"
+        },
+        {
+        "name":"SOGEBOT_BOT_NAME",
+        "label": "BOT name"
+        },
+        {
+        "name":"SOGEBOT_BOT_OAUTH",
+        "label": "BOT OAUTH"
+        },
+        {
+        "name":"SOGEBOT_BOT_BROADCASTER_USERNAME",
+        "label": "Twitch username"
+        },
+        {"name":"SOGEBOT_BOT_BROADCASTER_OAUTH",
+        "label": "Broadcaster OAUTH"
+        },
+        {"name":"SOGEBOT_BOT_CLIENTID",
+        "label": "BOT clientID"
+        },
+        {
+        "name":"SOGEBOT_DOMAIN",
+        "label": "Domain (eg: sogebot.acme.lan)"
+        },
+        {
+        "name":"SOGEBOT_MONGODB_SERVER",
+        "label": "optional MongoServer (eg : 127.0.0.1:27017/mydb)"
+        }
+     ]
+   },
+  {
     "type": "container",
     "title": "Registry",
     "description": "Docker image registry",
