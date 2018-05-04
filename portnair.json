@@ -46,7 +46,7 @@
      "note": "SogeBot",
      "platform": "linux",
      "logo": "https://cdn-images-1.medium.com/max/327/1*paQ7E6f2VyTKXHpR-aViFg.png",
-     "image": "thortz/sogebot:latest",
+     "image": "thortz/docker-sogebot:latest",
      "ports": [
        "20000/tcp"
      ],
