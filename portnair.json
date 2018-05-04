@@ -54,7 +54,7 @@
      { "name": "traefik.docker.network", "value": "traefik_default" },
      { "name": "traefik.backend", "value": "sogebot" },
      { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
-     ]
+     ],
     "env": [
      { "name":"SOGEBOT_PORT", "label": "20000" },
      { "name":"SOGEBOT_WEB_USERNAME", "label": "WEBuiUSER" },
