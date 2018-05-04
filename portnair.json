@@ -89,6 +89,10 @@
 	{
 	"name":"SOGEBOT_DOMAIN",
 	"label": "Domain (eg: sogebot.acme.lan)"
+	},
+	{
+	"name":"SOGEBOT_MONGODB_SERVER",
+	"label": "opt : url (eg : 127.0.0.1:27017/mydb)"
 	}
      ]
    },
