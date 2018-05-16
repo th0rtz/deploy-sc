@@ -178,7 +178,7 @@
      { "name": "traefik.docker.network", "value": "traefik_default" },
      { "name": "traefik.backend", "value": "healthcheck" },
      { "name": "traefik.frontend.rule", "value": "Host:healthcheck.acme.lan"}
-     ],
+     ]
   },
   {
     "type": "container",
