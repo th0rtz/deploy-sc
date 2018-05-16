@@ -163,6 +163,24 @@
      ]
    },
   {
+     "type": "container",
+     "title": "Healthcheck",
+     "description": "Healthcheck",
+     "categories": ["monitoring"],
+     "note": "Healthcheck",
+     "platform": "linux",
+     "logo": "https://healthchecks.io/static/img/logo-full.png",
+     "image": "thortz/docker-healthcheck:latest",
+     "ports": [
+       "8080/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "healthcheck" },
+     { "name": "traefik.frontend.rule", "value": "Host:healthcheck.acme.lan"}
+     ],
+  },
+  {
     "type": "container",
     "title": "Registry",
     "description": "Docker image registry",
