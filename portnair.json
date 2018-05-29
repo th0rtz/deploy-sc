@@ -174,12 +174,52 @@
      "ports": [
        "8080/tcp"
      ],
+    "volumes": [
+     {
+	"container":"/",
+	"bind":"/rootfs:ro"
+     },
+     {
+	"container":"/var/run",
+	"bind":"/var/run:rw",
+     },
+     {
+	"container":"/sys",
+	"bind":"/sys:ro",
+     },
+     {
+	"container":"/var/lib/docker/",
+	"bind":"/var/lib/docker:ro",
+     },
+     {
+	"container":"/dev/disk/",
+	"bind":"/dev/disk:ro",
+     }
+     ],
     "labels": [
      { "name": "traefik.docker.network", "value": "traefik_default" },
      { "name": "traefik.backend", "value": "healthcheck" },
      { "name": "traefik.frontend.rule", "value": "Host:healthcheck.acme.lan"}
      ]
   },
+  {
+     "type": "container",
+     "title": "cAdvisor",
+     "description": "cAdvisor",
+     "categories": ["monitoring"],
+     "note": "cAdvisor",
+     "platform": "linux",
+     "logo": "https://raw.githubusercontent.com/google/cadvisor/master/logo.png",
+     "image": "google/cadvisor:latest",
+     "ports": [
+       "8080/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "cadvisor" },
+     { "name": "traefik.frontend.rule", "value": "Host:host.acme.lan"}
+     ]
+   },
   {
     "type": "container",
     "title": "Registry",
