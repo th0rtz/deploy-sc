@@ -174,28 +174,6 @@
      "ports": [
        "8080/tcp"
      ],
-    "volumes": [
-     {
-	"container":"/",
-	"bind":"/rootfs:ro"
-     },
-     {
-	"container":"/var/run",
-	"bind":"/var/run:rw"
-     },
-     {
-	"container":"/sys",
-	"bind":"/sys:ro"
-     },
-     {
-	"container":"/var/lib/docker/",
-	"bind":"/var/lib/docker:ro"
-     },
-     {
-	"container":"/dev/disk/",
-	"bind":"/dev/disk:ro"
-     }
-     ],
     "labels": [
      { "name": "traefik.docker.network", "value": "traefik_default" },
      { "name": "traefik.backend", "value": "healthcheck" },
@@ -213,6 +191,28 @@
      "image": "google/cadvisor:latest",
      "ports": [
        "8080/tcp"
+     ],
+    "volumes": [
+     {
+        "container":"/",
+        "bind":"/rootfs:ro"
+     },
+     {
+        "container":"/var/run",
+        "bind":"/var/run:rw"
+     },
+     {
+        "container":"/sys",
+        "bind":"/sys:ro"
+     },
+     {
+        "container":"/var/lib/docker/",
+        "bind":"/var/lib/docker:ro"
+     },
+     {
+        "container":"/dev/disk/",
+        "bind":"/dev/disk:ro"
+     }
      ],
     "labels": [
      { "name": "traefik.docker.network", "value": "traefik_default" },
