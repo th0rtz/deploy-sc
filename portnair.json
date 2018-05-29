@@ -181,19 +181,19 @@
      },
      {
 	"container":"/var/run",
-	"bind":"/var/run:rw",
+	"bind":"/var/run:rw"
      },
      {
 	"container":"/sys",
-	"bind":"/sys:ro",
+	"bind":"/sys:ro"
      },
      {
 	"container":"/var/lib/docker/",
-	"bind":"/var/lib/docker:ro",
+	"bind":"/var/lib/docker:ro"
      },
      {
 	"container":"/dev/disk/",
-	"bind":"/dev/disk:ro",
+	"bind":"/dev/disk:ro"
      }
      ],
     "labels": [
