@@ -1,0 +1,30 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    packages: [ 'vim', 'git', 'curl', 'apt-transport-https', 'ca-certificates', 'curl', 'gnupg2', 'software-properties-common' ]
+    docker_apt: [ 'docker-ce', 'docker-ce-cli', 'containerd.io']
+  tasks:
+    - name: Install Package {{ packages }}
+      apt: name={{ packages }} state=latest
+
+    - name: Debian add docker key
+      apt_key: 
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: Debian add docker apt
+      command: bash -c "echo \"deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" "
+      register: docker_repo_line
+
+    - debug: 
+        msg: "{{ docker_repo_line.stdout }}"
+
+    - name: add docker repo
+      apt_repository:
+        repo: "{{ docker_repo_line.stdout }}"
+        state: present
+      become: true
+
+    - name: Deploy Docker {{ docker_apt }} 
+      apt: name={{ docker_apt }} state=latest
