@@ -11,8 +11,8 @@
         path: /home/{{ app_name }}
         state: directory
 
-    - name: {{ app_name }} Config
-      action: template src=template/traefik.toml.ini dest=home//{{ app_name }}/config.toml
+    - name: Traefik Config
+      action: template src=template/traefik.toml dest=/home/{{ app_name }}/config.toml
 
     - name: Traefik Get
       get_url: 
