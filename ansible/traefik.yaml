@@ -1,0 +1,18 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    traefik_version: 1.7.11
+  tasks:
+    - name: Traefik Get
+      get_url: 
+        url: https://github.com/containous/traefik/releases/download/v{{traefik_version}}/traefik_linux-amd64
+        dest: /usr/local/bin/traefik
+        mode: 0775
+
+    - name: Traefik Version
+      command: bash -c "traefik version"
+      register: traefik_version_check
+
+    - debug: 
+        msg: "{{ traefik_version_check.stdout }}"
