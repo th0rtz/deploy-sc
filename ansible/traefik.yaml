@@ -1,9 +1,19 @@
 ---
 - hosts: all
   sudo: true
+  serial: 2
   vars:
+    app_name: traefik
     traefik_version: 1.7.11
   tasks:
+    - name: Creates directory
+      file:
+        path: /home/{{ app_name }}
+        state: directory
+
+    - name: {{ app_name }} Config
+      action: template src=template/traefik.toml.ini dest=home//{{ app_name }}/config.toml
+
     - name: Traefik Get
       get_url: 
         url: https://github.com/containous/traefik/releases/download/v{{traefik_version}}/traefik_linux-amd64
@@ -16,3 +26,15 @@
 
     - debug: 
         msg: "{{ traefik_version_check.stdout }}"
+
+    - name: Install supervisord
+      apt: name=supervisor state=latest
+
+    - name: Supervisor Config for {{ app_name }}
+      action: template src=template/supervisor.ini dest=/etc/supervisor/conf.d/{{ app_name }}.conf
+      notify:
+        - restart app
+
+  handlers:
+    - name: restart app
+      action: supervisorctl name={{ app_name }} state=present
