@@ -17,7 +17,7 @@ storage = "/home/traefik/acme.json"
 entryPoint = "https"
 onDemand = false
 onHostRule = true
-caServer = "http://traefik.boulder.com:4001/directory"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
   [acme.httpChallenge]
   entryPoint="http"
 
