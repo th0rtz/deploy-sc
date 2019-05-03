@@ -1,6 +1,11 @@
 traefik:
   email: "traefik@localdomain.lan"
-  caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+  caServer: "https://acme-v02.api.letsencrypt.org/directory"
   provider: "digitalocean"
   main: "*.localdomain.lan"
   sans: "localdomain.lan"
+acme_api:
+  OVH_APPLICATION_KEY: xxxxxxxxxxxxxxxxxxx
+  OVH_APPLICATION_SECRET: yyyyyyyyyyyyyyyyyyyyyy
+  OVH_CONSUMER_KEY: zzzzzzzzzzzzzzzzzzzzzzzzz
+  OVH_ENDPOINT: ovh-ca

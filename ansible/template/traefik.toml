@@ -30,3 +30,4 @@ endpoint = "unix:///var/run/docker.sock"
 domain = "{{traefik.sans}}"
 watch = true
 exposedByDefault = false
+network = "traefik"
