@@ -190,7 +190,7 @@
     "image": "th0rtz/blank",
     "ports": [
       "5000/tcp"
-    ],
+    ]
   },
   {
     "type": "container",
