@@ -1,0 +1,6 @@
+traefik:
+  email: "traefik@localdomain.lan"
+  caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+  provider: "digitalocean"
+  main: "*.localdomain.lan"
+  sans: "localdomain.lan"

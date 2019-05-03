@@ -12,19 +12,21 @@ defaultEntryPoints = ["http", "https"]
     [entryPoints.https.tls]
 
 [acme]
-email = "test@traefik.io"
+email = '{{traefik.email}}'
 storage = "/home/traefik/acme.json"
 entryPoint = "https"
 onDemand = false
 onHostRule = true
-caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-  [acme.httpChallenge]
-  entryPoint="http"
-
-[api]
+caServer = "{{traefik.caServer}}"
+[acme.dnsChallenge]
+  provider = "{{traefik.provider}}"
+  delayBeforeCheck = 60
+[[acme.domains]]
+  main = "{{traefik.main}}"
+  sans = [ "{{traefik.sans}}" ]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "traefik.localhost.com"
+domain = "{{traefik.sans}}"
 watch = true
 exposedByDefault = false
