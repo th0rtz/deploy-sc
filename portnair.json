@@ -1,5 +1,6 @@
 
-    {
+[
+  {
     "type": 1,
     "title": "Traefik",
     "description": "Træfik (pronounced like traffic) is a modern HTTP reverse proxy/load balancer",
@@ -14,7 +15,7 @@
       "80/tcp",
       "443/tcp"
     ],
-   "labels": [
+    "labels": [
     { "name": "traefik.frontend.rule", "value": "acme.lan" }
     ],
     "volumes": ["/etc/traefik/traefik.toml"]
@@ -56,48 +57,48 @@
      { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
      ],
     "env": [
-	{
-	"name":"SOGEBOT_PORT",
-	"label": "Web UI port"
-	},
-	{
-	"name":"SOGEBOT_WEB_USERNAME",
-	"label": "Web UI Username"
-	},
-	{
-	"name":"SOGEBOT_WEB_PASSWORD",
-	"label": "Web IU Password"
-	},
-	{
-	"name":"SOGEBOT_BOT_NAME",
-	"label": "BOT name"
-	},
-	{
-	"name":"SOGEBOT_BOT_OAUTH",
-	"label": "BOT OAUTH"
-	},
-	{
-	"name":"SOGEBOT_BOT_BROADCASTER_USERNAME",
-	"label": "Twitch username"
-	},
-	{"name":"SOGEBOT_BOT_BROADCASTER_OAUTH",
-	"label": "Broadcaster OAUTH"
-	},
-	{"name":"SOGEBOT_BOT_CLIENTID",
-	"label": "BOT clientID"
-	},
-	{
-	"name":"SOGEBOT_DOMAIN",
-	"label": "Domain (eg: sogebot.acme.lan)"
-	},
-	{
-	"name":"SOGEBOT_MONGODB_SERVER",
-	"label": "optional MongoServer (eg : 127.0.0.1:27017/mydb)"
-	},
-	{
-	"name":"SOGEBOT_DEBUG",
-	"label":"Debug: false/true"
-	}
+  {
+  "name":"SOGEBOT_PORT",
+  "label": "Web UI port"
+  },
+  {
+  "name":"SOGEBOT_WEB_USERNAME",
+  "label": "Web UI Username"
+  },
+  {
+  "name":"SOGEBOT_WEB_PASSWORD",
+  "label": "Web IU Password"
+  },
+  {
+  "name":"SOGEBOT_BOT_NAME",
+  "label": "BOT name"
+  },
+  {
+  "name":"SOGEBOT_BOT_OAUTH",
+  "label": "BOT OAUTH"
+  },
+  {
+  "name":"SOGEBOT_BOT_BROADCASTER_USERNAME",
+  "label": "Twitch username"
+  },
+  {"name":"SOGEBOT_BOT_BROADCASTER_OAUTH",
+  "label": "Broadcaster OAUTH"
+  },
+  {"name":"SOGEBOT_BOT_CLIENTID",
+  "label": "BOT clientID"
+  },
+  {
+  "name":"SOGEBOT_DOMAIN",
+  "label": "Domain (eg: sogebot.acme.lan)"
+  },
+  {
+  "name":"SOGEBOT_MONGODB_SERVER",
+  "label": "optional MongoServer (eg : 127.0.0.1:27017/mydb)"
+  },
+  {
+  "name":"SOGEBOT_DEBUG",
+  "label":"Debug: false/true"
+  }
      ]
    },
   {
@@ -220,3 +221,4 @@
      { "name": "traefik.frontend.rule", "value": "Host:host.acme.lan"}
      ]
    }
+]
