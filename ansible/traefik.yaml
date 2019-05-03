@@ -38,4 +38,4 @@
 
   handlers:
     - name: restart app
-      action: supervisorctl name={{ app_name }} state=present
+      action: supervisorctl name={{ app_name }} state=restarted
