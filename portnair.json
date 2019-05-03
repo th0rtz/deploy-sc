@@ -1,4 +1,197 @@
+
 [
+  {
+    "type": 1,
+    "title": "Traefik",
+    "description": "Træfik (pronounced like traffic) is a modern HTTP reverse proxy/load balancer",
+    "categories": ["network"],
+    "note": "Træfik",
+    "platform": "linux",
+    "logo": "https://d33wubrfki0l68.cloudfront.net/e29410f43273a18d40e1bd6e41641f5afdfc8057/eb7ca/traefik.logo.png",
+    "image": "traefik:latest",
+    "command": "--api --docker",
+    "ports": [
+      "8080/tcp",
+      "80/tcp",
+      "443/tcp"
+    ],
+    "labels": [
+    { "name": "traefik.frontend.rule", "value": "acme.lan" }
+    ]
+  },
+  {
+     "type": 1,
+     "title": "SHaarli",
+     "description": "shaarli",
+     "categories": ["network"],
+     "note": "Shaarli",
+     "platform": "linux",
+     "logo": "https://raw.githubusercontent.com/shaarli/Shaarli/master/doc/md/images/doc-logo.png",
+     "image": "shaarli/shaarli:latest",
+     "ports": [
+       "80/tcp",
+       "443/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "shaarli" },
+     { "name": "traefik.frontend.rule", "value": "Host:shaarli.acme.lan"}
+     ]
+   },
+  {
+     "type": 1,
+     "title": "SogeBot",
+     "description": "Sogebot",
+     "categories": ["stream"],
+     "note": "SogeBot",
+     "platform": "linux",
+     "logo": "https://cdn-images-1.medium.com/max/327/1*paQ7E6f2VyTKXHpR-aViFg.png",
+     "image": "thortz/docker-sogebot:latest",
+     "ports": [
+       "20000/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "sogebot" },
+     { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
+     ],
+    "env": [
+      {
+      "name":"SOGEBOT_PORT",
+      "label": "Web UI port"
+      },
+      {
+      "name":"SOGEBOT_WEB_USERNAME",
+      "label": "Web UI Username"
+      },
+      {
+      "name":"SOGEBOT_WEB_PASSWORD",
+      "label": "Web IU Password"
+      },
+      {
+      "name":"SOGEBOT_BOT_NAME",
+      "label": "BOT name"
+      },
+      {
+      "name":"SOGEBOT_BOT_OAUTH",
+      "label": "BOT OAUTH"
+      },
+      {
+      "name":"SOGEBOT_BOT_BROADCASTER_USERNAME",
+      "label": "Twitch username"
+      },
+      {"name":"SOGEBOT_BOT_BROADCASTER_OAUTH",
+      "label": "Broadcaster OAUTH"
+      },
+      {"name":"SOGEBOT_BOT_CLIENTID",
+      "label": "BOT clientID"
+      },
+      {
+      "name":"SOGEBOT_DOMAIN",
+      "label": "Domain (eg: sogebot.acme.lan)"
+      },
+      {
+      "name":"SOGEBOT_MONGODB_SERVER",
+      "label": "optional MongoServer (eg : 127.0.0.1:27017/mydb)"
+      },
+      {
+      "name":"SOGEBOT_DEBUG",
+      "label":"Debug: false/true"
+      }
+     ]
+   },
+  {
+     "type": 1,
+     "title": "DEV-SogeBot",
+     "description": "Sogebot",
+     "categories": ["stream"],
+     "note": "SogeBot",
+     "platform": "linux",
+     "logo": "https://cdn-images-1.medium.com/max/327/1*paQ7E6f2VyTKXHpR-aViFg.png",
+     "image": "thortz/docker-sogebot:dev",
+     "ports": [
+       "20000/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "sogebot" },
+     { "name": "traefik.frontend.rule", "value": "Host:sogebot.acme.lan"}
+     ],
+    "env": [
+        {
+        "name":"SOGEBOT_PORT",
+        "label": "Web UI port"
+        },
+        {
+        "name":"SOGEBOT_WEB_USERNAME",
+        "label": "Web UI Username"
+        },
+        {
+        "name":"SOGEBOT_WEB_PASSWORD",
+        "label": "Web IU Password"
+        },
+        {
+        "name":"SOGEBOT_BOT_NAME",
+        "label": "BOT name"
+        },
+        {
+        "name":"SOGEBOT_BOT_OAUTH",
+        "label": "BOT OAUTH"
+        },
+        {
+        "name":"SOGEBOT_BOT_BROADCASTER_USERNAME",
+        "label": "Twitch username"
+        },
+        {"name":"SOGEBOT_BOT_BROADCASTER_OAUTH",
+        "label": "Broadcaster OAUTH"
+        },
+        {"name":"SOGEBOT_BOT_CLIENTID",
+        "label": "BOT clientID"
+        },
+        {
+        "name":"SOGEBOT_DOMAIN",
+        "label": "Domain (eg: sogebot.acme.lan)"
+        },
+        {
+        "name":"SOGEBOT_MONGODB_SERVER",
+        "label": "optional MongoServer (eg : 127.0.0.1:27017/mydb)"
+        },
+        {
+        "name":"SOGEBOT_DEBUG",
+        "label":"Debug: false/true"
+        }
+     ]
+   },
+  {
+     "type": 1,
+     "title": "Healthcheck",
+     "description": "Healthcheck",
+     "categories": ["monitoring"],
+     "note": "Healthcheck",
+     "platform": "linux",
+     "logo": "https://healthchecks.io/static/img/logo-full.png",
+     "image": "thortz/docker-healthcheck:latest",
+     "ports": [
+       "8080/tcp"
+     ],
+    "labels": [
+     { "name": "traefik.docker.network", "value": "traefik_default" },
+     { "name": "traefik.backend", "value": "healthcheck" },
+     { "name": "traefik.frontend.rule", "value": "Host:healthcheck.acme.lan"}
+     ]
+  },
+  {
+    "type": "container",
+    "title": "BLANK",
+    "description": "Blank",
+    "categories": ["docker"],
+    "platform": "linux",
+    "logo": "https://cdn3.iconfinder.com/data/icons/security-locks-2/100/security-lock-blank-128.png",
+    "image": "th0rtz/blank",
+    "ports": [
+      "5000/tcp"
+    ],
+  },
   {
     "type": "container",
     "title": "Registry",
