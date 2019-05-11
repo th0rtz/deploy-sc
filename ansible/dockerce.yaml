@@ -28,3 +28,6 @@
 
     - name: Deploy Docker {{ docker_apt }} 
       apt: name={{ docker_apt }} state=latest
+
+    - name: Ctop docker
+      command: wget https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64 -O /usr/local/bin/ctop && chmod +x /usr/local/bin/ctop
