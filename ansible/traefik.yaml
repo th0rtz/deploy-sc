@@ -29,6 +29,9 @@
     - debug: 
         msg: "{{ traefik_version_check.stdout }}"
 
+    - name: Docker network
+        command: docker network create traefik
+
     - name: Install supervisord
       apt: name=supervisor state=latest
 
